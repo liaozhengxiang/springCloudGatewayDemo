@@ -43,7 +43,11 @@ import java.util.logging.Filter;
 import static org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter.CACHED_REQUEST_BODY_KEY;
 
 /**
- * 拦截RequestBody里的内容，并将其保存到拦截链条的Attributes中 key为ReadRequestBodyGatewayFilterFactory.CACHE_REQUEST_BODY_OBJECT_KEY
+ * 代码拷贝自@{@link org.springframework.cloud.gateway.filter.factory.rewrite.ModifyRequestBodyGatewayFilterFactory}
+ *
+ *
+ * 拦截RequestBody里的内容，并将其保存到拦截链条的<br/>
+ * Attributes中 key为ReadRequestBodyGatewayFilterFactory.CACHE_REQUEST_BODY_OBJECT_KEY
  */
 @Component
 public class ReadRequestBodyGatewayFilterFactory

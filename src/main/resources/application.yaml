@@ -9,7 +9,9 @@ spring:
           filters:
             - ReadRequestBody=application/json;charset=UTF-8
             - VerifySign
-
+  http:
+    encoding:
+      charset: utf-8
 management:
   endpoints:
     web:
