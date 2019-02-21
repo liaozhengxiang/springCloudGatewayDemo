@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: http://localhost:9999
+          predicates:
+            - Path=/hello/pay,/post,/get
+          filters:
+            - ReadRequestBody=application/json;charset=UTF-8
+            - VerifySign
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+
