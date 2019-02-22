@@ -43,7 +43,9 @@ public abstract class AbstractCommonGatewayFilterFactory
         return getGatewayFilter();
     }
 
-
-    public static class Config {
+    /**
+     * 这个类仅是为了符合规范，暂时无其他用处
+     */
+    static class Config {
     }
 }
