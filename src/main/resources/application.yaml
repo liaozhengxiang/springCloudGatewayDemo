@@ -7,7 +7,8 @@ spring:
           predicates:
             - Path=/hello/pay,/post,/get
           filters:
-            - ReadRequestBody=application/json;charset=UTF-8
+#            - ReadRequestBody
+            - NewReadBody
             - VerifySign
   http:
     encoding:
