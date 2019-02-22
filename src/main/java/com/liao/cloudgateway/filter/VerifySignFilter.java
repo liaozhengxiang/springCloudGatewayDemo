@@ -1,8 +1,8 @@
 package com.liao.cloudgateway.filter;
 
+import com.liao.cloudgateway.enums.FilterOrder;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.NettyRoutingFilter;
 import org.springframework.core.Ordered;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -25,6 +25,6 @@ public class VerifySignFilter implements GatewayFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return NettyRoutingFilter.HIGHEST_PRECEDENCE + 101;
+        return FilterOrder.VERIFY_SIGN.getOrder();
     }
 }

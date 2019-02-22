@@ -1,5 +1,6 @@
 package com.liao.cloudgateway.filter;
 
+import com.liao.cloudgateway.enums.FilterOrder;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.NettyRoutingFilter;
@@ -102,7 +103,7 @@ public class ReadBodyFilter implements GatewayFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return NettyRoutingFilter.HIGHEST_PRECEDENCE + 100;
+        return FilterOrder.READ_REQ_BODY.getOrder();
     }
 
     public void readBody(ServerWebExchange exchange, Object body) {
