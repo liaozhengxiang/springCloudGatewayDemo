@@ -19,11 +19,14 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ReadBodyFilter implements GatewayFilter, Ordered {
     public static final String CACHE_REQUEST_BODY_OBJECT_KEY = "cachedRequestBodyObject";
-    private final List<HttpMessageReader<?>> messageReaders=HandlerStrategies.withDefaults().messageReaders();
+    private final List<HttpMessageReader<?>> messageReaders = HandlerStrategies.withDefaults().messageReaders();
 
     @Override
     @SuppressWarnings("unchecked")
@@ -88,6 +91,7 @@ public class ReadBodyFilter implements GatewayFilter, Ordered {
 
     /**
      * 值越低 优先级越高
+     *
      * @return
      */
     @Override
@@ -96,6 +100,10 @@ public class ReadBodyFilter implements GatewayFilter, Ordered {
     }
 
     public void readBody(ServerWebExchange exchange, Object body) {
-        exchange.getAttributes().put(CACHE_REQUEST_BODY_OBJECT_KEY, body);
+        try {
+            exchange.getAttributes().put(CACHE_REQUEST_BODY_OBJECT_KEY, URLDecoder.decode(body.toString(), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            exchange.getAttributes().put(CACHE_REQUEST_BODY_OBJECT_KEY, body);
+        }
     }
 }

@@ -3,13 +3,12 @@ spring:
     gateway:
       routes:
         - id: path_route
-          uri: http://localhost:9999
+          uri: http://localhost:9998
           predicates:
             - Path=/hello/pay,/post,/get
           filters:
-#            - ReadRequestBody
-            - NewReadBody
-            - VerifySign
+            - ReadRequestBody
+            - SignRespBody
   http:
     encoding:
       charset: utf-8

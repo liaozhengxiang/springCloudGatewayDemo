@@ -134,7 +134,7 @@ public abstract class AbstractModifyResponseBodyFilter implements GatewayFilter,
      * @param originalBody 原来的body
      * @return 修改后的body
      */
-    public abstract Object modifyBody(ServerWebExchange exchange, Object originalBody);
+    public abstract Mono modifyBody(ServerWebExchange exchange, Object originalBody);
 
     /**
      * 这个filter的执行顺序
