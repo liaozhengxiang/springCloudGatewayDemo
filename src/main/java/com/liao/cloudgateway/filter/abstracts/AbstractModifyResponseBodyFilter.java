@@ -24,6 +24,13 @@ import reactor.core.publisher.Mono;
 
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.ORIGINAL_RESPONSE_CONTENT_TYPE_ATTR;
 
+/**
+ * 修改请求响应的body抽象类，需要修改body只需要继承本类，并实现抽象方法即可
+ *
+ * @author liaozhengxiang
+ * @date 2019/2/22
+ */
+
 public abstract class AbstractModifyResponseBodyFilter implements GatewayFilter, Ordered {
     @Override
     @SuppressWarnings("unchecked")
@@ -120,7 +127,19 @@ public abstract class AbstractModifyResponseBodyFilter implements GatewayFilter,
         }
     }
 
+    /**
+     * 操作响应body的方法
+     *
+     * @param exchange
+     * @param originalBody 原来的body
+     * @return 修改后的body
+     */
     public abstract Object modifyBody(ServerWebExchange exchange, Object originalBody);
 
+    /**
+     * 这个filter的执行顺序
+     *
+     * @return
+     */
     public abstract Integer getFilterOrder();
 }
