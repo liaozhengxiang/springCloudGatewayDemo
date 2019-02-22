@@ -26,6 +26,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.O
 
 /**
  * 修改请求响应的body抽象类，需要修改body只需要继承本类，并实现抽象方法即可
+ * 配置文件方式现在只能通过构建工厂的方式注入
  *
  * @author liaozhengxiang
  * @date 2019/2/22

@@ -21,8 +21,14 @@ import reactor.core.publisher.Mono;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
+
+/**
+ * 读取Request Body的自定义过滤器
+ *
+ * @author liaozhengxiang
+ * @date 2019/2/22
+ */
 
 public class ReadBodyFilter implements GatewayFilter, Ordered {
     public static final String CACHE_REQUEST_BODY_OBJECT_KEY = "cachedRequestBodyObject";

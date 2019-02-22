@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @SpringBootApplication
-public class CloudgatewayApplication {
+public class CloudGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudgatewayApplication.class, args);
+        SpringApplication.run(CloudGatewayApplication.class, args);
     }
 
 

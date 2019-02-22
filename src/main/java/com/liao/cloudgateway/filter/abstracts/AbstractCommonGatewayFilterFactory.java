@@ -24,7 +24,7 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
  * 需要将自定义的GatewayFilter注入SpringGateway，
  * 只需要继承该类，并将实现了GatewayFilter和Orderd接口的自定义filter通过getGatewayFilter传递进来
  * 并加上@Component标签即可，继承类建议使用xxxxGatewayFilterFactory的形式
- *
+ * 配置文件方式现在只能通过构建工厂的方式注入
  * @author liaozhengxiang
  * @date 2019/2/22
  */
