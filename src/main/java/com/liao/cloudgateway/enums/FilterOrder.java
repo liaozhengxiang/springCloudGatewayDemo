@@ -23,7 +23,7 @@ public enum FilterOrder {
     /**
      * response 部分，应大于NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER
      */
-    SIGN_RESP(NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER + 101, "对返回商户的信息进行加签");
+    SIGN_RESP(NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER + 100, "对返回商户的信息进行加签");
 
 
     private Integer order;

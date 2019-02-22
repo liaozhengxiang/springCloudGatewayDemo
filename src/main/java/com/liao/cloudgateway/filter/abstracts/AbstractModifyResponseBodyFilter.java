@@ -86,7 +86,7 @@ public abstract class AbstractModifyResponseBodyFilter implements GatewayFilter,
 
     @Override
     public int getOrder() {
-        return NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER - getFilterOrder();
+        return getFilterOrder();
     }
 
     public class ResponseAdapter implements ClientHttpResponse {
