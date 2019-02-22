@@ -25,7 +25,8 @@ import reactor.core.publisher.Mono;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.ORIGINAL_RESPONSE_CONTENT_TYPE_ATTR;
 
 /**
- * 修改请求响应的body抽象类，需要修改body只需要继承本类，并实现抽象方法即可
+ * 修改请求响应的body抽象类
+ * 需要修改body只需要继承本类，并实现抽象方法即可
  * 配置文件方式现在只能通过构建工厂的方式注入
  *
  * @author liaozhengxiang

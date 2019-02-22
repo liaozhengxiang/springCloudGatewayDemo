@@ -21,10 +21,12 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 
 /**
- * 需要将自定义的GatewayFilter注入SpringGateway，
- * 只需要继承该类，并将实现了GatewayFilter和Orderd接口的自定义filter通过getGatewayFilter传递进来
- * 并加上@Component标签即可，继承类建议使用xxxxGatewayFilterFactory的形式
- * 配置文件方式现在只能通过构建工厂的方式注入
+ * 需要将自定义的GatewayFilter注入SpringGateway，配置文件方式现在只能通过构建工厂的方式注入<br/>
+ * 用法：<br/>
+ * 1.只需要继承该类，并将实现了GatewayFilter和Orderd接口的自定义filter通过getGatewayFilter传递进来<br/>
+ * 2.加上@Component标签即可，继承类需使用xxxxGatewayFilterFactory的形式<br/>
+ * 3.在配置文件中使用该过滤器填写名称为：xxxx，Spring默认帮我们去掉GatewayFilterFactory部分<br/>
+ *
  * @author liaozhengxiang
  * @date 2019/2/22
  */
@@ -32,12 +34,18 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 public abstract class AbstractCommonGatewayFilterFactory
         extends AbstractGatewayFilterFactory<AbstractCommonGatewayFilterFactory.Config> {
 
-    public AbstractCommonGatewayFilterFactory(){
+    public AbstractCommonGatewayFilterFactory() {
         super(Config.class);
     }
+
     public abstract GatewayFilter getGatewayFilter();
 
-
+    /**
+     * Spring gateway启动时会调用该方法，初始化过滤器并将过滤器和RouteId进行绑定
+     *
+     * @param config
+     * @return
+     */
     @Override
     public GatewayFilter apply(Config config) {
         return getGatewayFilter();
