@@ -8,6 +8,7 @@ spring:
             - Path=/hello/pay,/post,/get
           filters:
             - ReadRequestBody
+            - VerifySign
             - SignRespBody
   http:
     encoding:

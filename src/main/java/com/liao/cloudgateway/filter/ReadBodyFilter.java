@@ -102,7 +102,7 @@ public class ReadBodyFilter implements GatewayFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return NettyRoutingFilter.HIGHEST_PRECEDENCE + 1;
+        return NettyRoutingFilter.HIGHEST_PRECEDENCE + 100;
     }
 
     public void readBody(ServerWebExchange exchange, Object body) {
