@@ -2,6 +2,7 @@ package com.liao.cloudgateway.filter.factory;
 
 import com.liao.cloudgateway.filter.VerifySignFilter;
 import com.liao.cloudgateway.filter.abstracts.AbstractCommonGatewayFilterFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class VerifySignGatewayFilterFactory extends AbstractCommonGatewayFilterFactory {
+
+    @Autowired
+    private VerifySignFilter verifySignFilter;
+
     @Override
     public GatewayFilter getGatewayFilter() {
-        return new VerifySignFilter();
+        return verifySignFilter;
     }
 }

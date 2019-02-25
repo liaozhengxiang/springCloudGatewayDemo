@@ -2,6 +2,7 @@ package com.liao.cloudgateway.filter;
 
 import com.liao.cloudgateway.enums.FilterOrder;
 import com.liao.cloudgateway.filter.abstracts.AbstractModifyResponseBodyFilter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -11,7 +12,7 @@ import reactor.core.publisher.Mono;
  * @author liaozhengxiang
  * @date 2019/2/22
  */
-
+@Component
 public class SignRespBodyFilter extends AbstractModifyResponseBodyFilter {
     @Override
     public Mono modifyBody(ServerWebExchange exchange, Object originalBody) {
