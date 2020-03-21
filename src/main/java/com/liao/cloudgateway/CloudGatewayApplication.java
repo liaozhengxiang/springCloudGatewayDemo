@@ -13,28 +13,5 @@ public class CloudGatewayApplication {
     }
 
 
-
-
-
-
-  /*  @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-
-        System.out.println("customRouteLocator........");
-        return builder.routes()
-                .route("pathRoute", r -> r.path("/fastPay/**")
-                        .and()
-                        //表示需要读取body，spring会调用ReadBodyPredicateFactory缓存body
-                        .readBody(String.class, readeBody -> true)
-//                        .filters(f->f.filter().filter())
-                        .uri("http://httpbin.org"))
-
-//                .route("pathRoute", r -> r.path("/fastPay/**")
-//                        .filters(f->f.modifyRequestBody())
-
-                .build();
-
-    }*/
-
 }
 
